@@ -1,8 +1,9 @@
 package es.com.priceproduct.between.unit.dto;
 
 import es.com.priceproduct.between.dto.BrandDto;
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+
 
 import static org.junit.Assert.*;
 
@@ -10,7 +11,7 @@ public class BrandDtoTest {
 
     private BrandDto brandDto;
 
-    @Before
+    @BeforeEach
     public void setUp() {
         brandDto = BrandDto.builder()
                 .id(1l)

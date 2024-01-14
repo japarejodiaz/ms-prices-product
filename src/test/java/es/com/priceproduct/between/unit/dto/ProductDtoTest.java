@@ -1,8 +1,10 @@
 package es.com.priceproduct.between.unit.dto;
 
 import es.com.priceproduct.between.dto.ProductDto;
-import org.junit.Before;
-import org.junit.Test;
+
+
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 import static org.junit.Assert.*;
 
@@ -11,7 +13,7 @@ public class ProductDtoTest {
 
     private ProductDto productDto;
 
-    @Before
+    @BeforeEach
     public void setUp() {
         productDto = ProductDto.builder()
                 .id(1l)

@@ -11,7 +11,7 @@ import es.com.priceproduct.between.entity.ProductEntity;
 
 import java.time.LocalDateTime;
 
-public class MockUtils {
+public class UtilsMocks {
 
   public static BrandDto getBrandDto() {
     return BrandDto.builder()

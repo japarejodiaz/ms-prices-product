@@ -19,7 +19,7 @@
 		<java.version>17</java.version>
 		<openapi-starter-webmvc.version>2.0.3</openapi-starter-webmvc.version>
 		<mockito-core.version>5.5.0</mockito-core.version>
-		<junit-jupiter.version>5.10.0</junit-jupiter.version>
+		<!--<junit-jupiter.version>5.10.0</junit-jupiter.version>-->
 		<jacoco.version>0.8.10</jacoco.version>
 	</properties>
 
@@ -53,10 +53,6 @@
 			<scope>test</scope>
 			<exclusions>
 				<exclusion>
-					<groupId>org.junit.jupiter</groupId>
-					<artifactId>junit-jupiter</artifactId>
-				</exclusion>
-				<exclusion>
 					<groupId>org.junit.vintage</groupId>
 					<artifactId>junit-vintage-engine</artifactId>
 				</exclusion>
@@ -77,9 +73,28 @@
 			<artifactId>junit</artifactId>
 		</dependency>
 		<dependency>
-			<artifactId>junit-jupiter</artifactId>
 			<groupId>org.junit.jupiter</groupId>
-			<version>${junit-jupiter.version}</version>
+			<artifactId>junit-jupiter</artifactId>
+			<version>5.10.0</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.junit.jupiter</groupId>
+			<artifactId>junit-jupiter-params</artifactId>
+			<version>5.10.0</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.junit.jupiter</groupId>
+			<artifactId>junit-jupiter-api</artifactId>
+			<version>5.10.0</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<artifactId>mockito-junit-jupiter</artifactId>
+			<groupId>org.mockito</groupId>
+			<version>5.3.1</version>
+			<scope>test</scope>
 		</dependency>
 	</dependencies>
 

@@ -4,9 +4,10 @@ import es.com.priceproduct.between.entity.BrandEntity;
 import es.com.priceproduct.between.entity.CurrencyEntity;
 import es.com.priceproduct.between.entity.PricesEntity;
 import es.com.priceproduct.between.entity.ProductEntity;
-import es.com.priceproduct.between.unit.utils.MockUtils;
-import org.junit.Before;
-import org.junit.Test;
+import es.com.priceproduct.between.unit.utils.UtilsMocks;
+
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 import java.time.LocalDateTime;
 
@@ -18,11 +19,11 @@ public class PricesEntityTest {
     LocalDateTime startDate;
     LocalDateTime endDate;
 
-    @Before
+    @BeforeEach
     public void setUp() {
-        ProductEntity product = MockUtils.getProductEntity();
-        BrandEntity brand = MockUtils.getBrandEntity();
-        CurrencyEntity currency = MockUtils.getCurrencyEntity();
+        ProductEntity product = UtilsMocks.getProductEntity();
+        BrandEntity brand = UtilsMocks.getBrandEntity();
+        CurrencyEntity currency = UtilsMocks.getCurrencyEntity();
         startDate = LocalDateTime.now().minusMonths(5);
         endDate = LocalDateTime.now().plusMonths(5);
 
@@ -72,13 +73,13 @@ public class PricesEntityTest {
     @Test
     public void testNotEquals() {
         PricesEntity otherPriceResponse = PricesEntity.builder()
-                .product(MockUtils.getProductEntity())
-                .brand(MockUtils.getBrandEntity())
+                .product(UtilsMocks.getProductEntity())
+                .brand(UtilsMocks.getBrandEntity())
                 .priceList(1)
                 .startDate(startDate)
                 .endDate(endDate)
                 .price(400.0)
-                .currency(MockUtils.getCurrencyEntity())
+                .currency(UtilsMocks.getCurrencyEntity())
                 .id(1l)
                 .priority(1)
                 .priceList(1)

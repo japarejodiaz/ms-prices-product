@@ -1,8 +1,9 @@
 package es.com.priceproduct.between.unit.dto;
 
 import es.com.priceproduct.between.dto.CurrencyDto;
-import org.junit.Before;
-import org.junit.Test;
+
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 import static org.junit.Assert.*;
 
@@ -10,7 +11,7 @@ public class CurrencyDtoTest {
 
     private CurrencyDto currencyDto;
 
-    @Before
+    @BeforeEach
     public void setUp() {
         currencyDto = CurrencyDto.builder()
                 .id(1l)

@@ -3,7 +3,7 @@ package es.com.priceproduct.between.unit.mapper.impl;
 import es.com.priceproduct.between.dto.response.PricesResponse;
 import es.com.priceproduct.between.entity.PricesEntity;
 import es.com.priceproduct.between.mapper.impl.PricesMapperImpl;
-import es.com.priceproduct.between.unit.utils.MockUtils;
+import es.com.priceproduct.between.unit.utils.UtilsMocks;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
@@ -23,8 +23,8 @@ public class PricesMapperImplTest {
     public void whenMapperEntityToDto() {
 
         LocalDateTime consultationDate = LocalDateTime.now();
-        PricesEntity pricesEntity = MockUtils.getPricesEntity(consultationDate.minusMonths(5),consultationDate.plusMonths(5),500.00,1);
-        PricesResponse expectedResponse = MockUtils.getPricesResponse(consultationDate.minusMonths(5),consultationDate.plusMonths(5),500.00,1);
+        PricesEntity pricesEntity = UtilsMocks.getPricesEntity(consultationDate.minusMonths(5),consultationDate.plusMonths(5),500.00,1);
+        PricesResponse expectedResponse = UtilsMocks.getPricesResponse(consultationDate.minusMonths(5),consultationDate.plusMonths(5),500.00,1);
 
         PricesResponse dto = mapper.pricesEntityToPricesResponse(pricesEntity);
         assertEquals(dto,expectedResponse);

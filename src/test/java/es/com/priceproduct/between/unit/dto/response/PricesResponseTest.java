@@ -4,9 +4,11 @@ import es.com.priceproduct.between.dto.BrandDto;
 import es.com.priceproduct.between.dto.CurrencyDto;
 import es.com.priceproduct.between.dto.ProductDto;
 import es.com.priceproduct.between.dto.response.PricesResponse;
-import es.com.priceproduct.between.unit.utils.MockUtils;
-import org.junit.Before;
-import org.junit.Test;
+import es.com.priceproduct.between.unit.utils.UtilsMocks;
+
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+
 
 import java.time.LocalDateTime;
 
@@ -18,11 +20,11 @@ public class PricesResponseTest {
     LocalDateTime startDate;
     LocalDateTime endDate;
 
-    @Before
+    @BeforeEach
     public void setUp() {
-        ProductDto product = MockUtils.getProductDto();
-        BrandDto brand = MockUtils.getBrandDto();
-        CurrencyDto currency = MockUtils.getCurrencyDto();
+        ProductDto product = UtilsMocks.getProductDto();
+        BrandDto brand = UtilsMocks.getBrandDto();
+        CurrencyDto currency = UtilsMocks.getCurrencyDto();
         startDate = LocalDateTime.now().minusMonths(5);
         endDate = LocalDateTime.now().plusMonths(5);
 
@@ -52,6 +54,7 @@ public class PricesResponseTest {
 
         Boolean isEqual = otherPriceResponse.equals(otherPriceResponse);
 
+
         assertEquals(pricesResponse, otherPriceResponse);
         assertEquals(pricesResponse.hashCode(), otherPriceResponse.hashCode());
         assertTrue(isEqual);
@@ -66,13 +69,13 @@ public class PricesResponseTest {
     @Test
     public void testNotEquals() {
         PricesResponse otherPriceResponse = PricesResponse.builder()
-                .product(MockUtils.getProductDto())
-                .brand(MockUtils.getBrandDto())
+                .product(UtilsMocks.getProductDto())
+                .brand(UtilsMocks.getBrandDto())
                 .priceList(1)
                 .startDate(startDate)
                 .endDate(endDate)
                 .price(400.0)
-                .currency(MockUtils.getCurrencyDto())
+                .currency(UtilsMocks.getCurrencyDto())
                 .build();
 
         Boolean isEqual = pricesResponse.equals(otherPriceResponse);

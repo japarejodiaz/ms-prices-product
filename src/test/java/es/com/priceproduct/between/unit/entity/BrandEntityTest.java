@@ -1,8 +1,9 @@
 package es.com.priceproduct.between.unit.entity;
 
 import es.com.priceproduct.between.entity.BrandEntity;
-import org.junit.Before;
-import org.junit.Test;
+
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 import static org.junit.Assert.*;
 
@@ -10,7 +11,7 @@ public class BrandEntityTest {
 
     private BrandEntity brandEntity;
 
-    @Before
+    @BeforeEach
     public void setUp() {
         brandEntity = BrandEntity.builder()
                 .id(1l)
@@ -18,7 +19,7 @@ public class BrandEntityTest {
                 .build();
     }
 
-    @Test
+    @org.junit.jupiter.api.Test
     public void testBrandEntityBuilderAndGettersAndSetters() {
 
         BrandEntity otherBrandEntity = BrandEntity.builder().build();

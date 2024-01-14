@@ -5,22 +5,24 @@ import es.com.priceproduct.between.controller.CustomExceptionHandler;
 import es.com.priceproduct.between.controller.PricesController;
 import es.com.priceproduct.between.exception.PricesNotFoundException;
 import es.com.priceproduct.between.service.PricesService;
-import es.com.priceproduct.between.unit.utils.MockUtils;
+import es.com.priceproduct.between.unit.utils.UtilsMocks;
 import org.hamcrest.Matchers;
-import org.junit.Before;
-import org.junit.Test;
-import org.junit.runner.RunWith;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
-import org.mockito.junit.MockitoJUnitRunner;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
+import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.context.MessageSource;
 import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import org.springframework.web.bind.MissingServletRequestParameterException;
+import org.springframework.web.context.WebApplicationContext;
 import org.springframework.web.method.annotation.MethodArgumentTypeMismatchException;
-import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 
 import java.text.MessageFormat;
 import java.time.LocalDateTime;
@@ -33,8 +35,9 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
 
-@RunWith(MockitoJUnitRunner.class)
-@EnableWebMvc
+
+@SpringBootTest
+@AutoConfigureMockMvc
 public class PricesControllerTest {
 
     @Autowired
@@ -49,6 +52,9 @@ public class PricesControllerTest {
     @InjectMocks
     private CustomExceptionHandler customExceptionHandler;
 
+    @Autowired
+    private WebApplicationContext webApplicationContext;
+
     @Mock
     private MessageSource messageSource;
 
@@ -56,7 +62,7 @@ public class PricesControllerTest {
 
     private static final DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm:ss");
 
-    @Before
+    @BeforeEach
     public void setUp() {
 
         mockMvc = MockMvcBuilders.standaloneSetup(pricesController)
@@ -72,7 +78,7 @@ public class PricesControllerTest {
         Long productId = 35455l;
 
         when(pricesService.getPriceByProductAndBrandAndDate(consultationDate, brandId, productId))
-                .thenReturn(MockUtils.getPricesResponse(consultationDate.minusMonths(5),consultationDate.plusMonths(5),500.00,1));
+                .thenReturn(UtilsMocks.getPricesResponse(consultationDate.minusMonths(5),consultationDate.plusMonths(5),500.00,1));
 
         mockMvc.perform(get(baseUrl)
                         .param("consultationDate", consultationDate.toString())
@@ -99,7 +105,7 @@ public class PricesControllerTest {
         Long productId = 35455l;
 
         when(pricesService.getPriceByProductAndBrandAndDate(null, brandId, productId))
-                .thenReturn(MockUtils.getPricesResponse(consultationDate.minusMonths(5),consultationDate.plusMonths(5),500.00,1));
+                .thenReturn(UtilsMocks.getPricesResponse(consultationDate.minusMonths(5),consultationDate.plusMonths(5),500.00,1));
 
         mockMvc.perform(get(baseUrl)
                         .param("brandId", brandId.toString())
