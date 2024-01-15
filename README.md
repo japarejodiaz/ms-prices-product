@@ -63,9 +63,9 @@ Parametros necesarios
 
 **user-name:** sa
 
-# Initial loading of data and tests - data de pruebas
+# Data inicial y de Pruebas - data de pruebas
 
-### Prices table:
+### Tabla de Precios:
 
 | PRICE_ID | BRAND_ID | PRODUCT_ID | CURRENCY_ID | START_DATE             | END_DATE               | PRICE_LIST | PRIORITY | PRICE |
 |----------|----------|------------|------------|------------------------|------------------------|------------|----------|-------|
@@ -78,7 +78,7 @@ Parametros necesarios
 | 7        | 2        | 35456      | 2          | '2023-01-01T00:00:00'  | '2023-12-31T00:00:00'  | 2          | 1        | 150.00 |
 | 8        | 3        | 35457      | 3          | '2023-01-01T00:00:00'  | '2023-12-31T00:00:00'  | 1          | 2        | 120.00 |
 
-### Test cases:
+### Casos de pruebas
 
 -          Test 1: petición a las 10:00 del día 14 del producto 35455 para la brand 1 
 -          Test 2: petición a las 16:00 del día 14 del producto 35455 para la brand 1 
@@ -86,7 +86,7 @@ Parametros necesarios
 -          Test 4: petición a las 10:00 del día 15 del producto 35455 para la brand 1 
 -          Test 5: petición a las 21:00 del día 16 del producto 35455 para la brand 1 
 
-### Results - resultados de las test
+### resultados de las test
 ```
 Java HotSpot(TM) 64-Bit Server VM warning: Sharing is only supported for boot loader classes because bootstrap classpath has been appended
 2024-01-14T23:16:17.204-03:00  INFO 1520919 --- [           main] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
