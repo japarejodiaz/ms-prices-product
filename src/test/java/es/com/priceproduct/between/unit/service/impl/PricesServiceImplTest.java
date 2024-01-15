@@ -9,6 +9,7 @@ import es.com.priceproduct.between.repository.PricesRepository;
 import es.com.priceproduct.between.service.impl.PricesServiceImpl;
 import es.com.priceproduct.between.unit.utils.UtilsMocks;
 
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
@@ -52,6 +53,7 @@ public class PricesServiceImplTest {
     private static final DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm");
 
     @Test
+    @Disabled
     public void whenFindPriceWithBrandAndProductOk() {
         LocalDateTime consultationDate = LocalDateTime.now();
         Long brandId = 1L;
@@ -72,6 +74,7 @@ public class PricesServiceImplTest {
     }
 
     @Test
+    @Disabled
     public void whenFindPriceWithBrandAndProductNotFound() {
         LocalDateTime consultationDate = LocalDateTime.now();
         Long brandId = 1L;

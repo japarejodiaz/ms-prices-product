@@ -88,5 +88,31 @@ Parametros necesarios
 
 ### Results - resultados de las test
 ```
+Java HotSpot(TM) 64-Bit Server VM warning: Sharing is only supported for boot loader classes because bootstrap classpath has been appended
+2024-01-14T23:16:17.204-03:00  INFO 1520919 --- [           main] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
+2024-01-14T23:16:17.204-03:00  INFO 1520919 --- [           main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2024-01-14T23:16:17.210-03:00  INFO 1520919 --- [           main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 3 ms
+2024-01-14T23:16:17.290-03:00  INFO 1520919 --- [           main] e.c.p.b.service.impl.PricesServiceImpl   : Entering getPriceByProductAndBrandAndDate [brandId]: 1, [productId]: 35455, [consultationDate]: 2020-06-14T10:00
+2024-01-14T23:16:17.526-03:00  INFO 1520919 --- [           main] e.c.p.b.service.impl.PricesServiceImpl   : Leaving getPriceByProductAndBrandAndDate [response]: PricesResponse(product=ProductDto(id=35455, name=JEANS BALLOON FIT), brand=BrandDto(id=1, name=Zara), priceList=1, startDate=2020-06-14T00:00, endDate=2020-12-31T23:59:59, price=35.5, currency=CurrencyDto(id=2, name=Euro, iso=EUR))
+2024-01-14T23:16:17.737-03:00  INFO 1520919 --- [           main] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
+2024-01-14T23:16:17.738-03:00  INFO 1520919 --- [           main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2024-01-14T23:16:17.740-03:00  INFO 1520919 --- [           main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 2 ms
+2024-01-14T23:16:17.742-03:00  INFO 1520919 --- [           main] e.c.p.b.service.impl.PricesServiceImpl   : Entering getPriceByProductAndBrandAndDate [brandId]: 1, [productId]: 35455, [consultationDate]: 2020-06-14T16:00
+2024-01-14T23:16:17.754-03:00  INFO 1520919 --- [           main] e.c.p.b.service.impl.PricesServiceImpl   : Leaving getPriceByProductAndBrandAndDate [response]: PricesResponse(product=ProductDto(id=35455, name=JEANS BALLOON FIT), brand=BrandDto(id=1, name=Zara), priceList=2, startDate=2020-06-14T15:00, endDate=2020-06-14T18:30, price=25.45, currency=CurrencyDto(id=2, name=Euro, iso=EUR))
+2024-01-14T23:16:17.770-03:00  INFO 1520919 --- [           main] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
+2024-01-14T23:16:17.770-03:00  INFO 1520919 --- [           main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2024-01-14T23:16:17.772-03:00  INFO 1520919 --- [           main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 2 ms
+2024-01-14T23:16:17.774-03:00  INFO 1520919 --- [           main] e.c.p.b.service.impl.PricesServiceImpl   : Entering getPriceByProductAndBrandAndDate [brandId]: 1, [productId]: 35455, [consultationDate]: 2020-06-14T21:00
+2024-01-14T23:16:17.786-03:00  INFO 1520919 --- [           main] e.c.p.b.service.impl.PricesServiceImpl   : Leaving getPriceByProductAndBrandAndDate [response]: PricesResponse(product=ProductDto(id=35455, name=JEANS BALLOON FIT), brand=BrandDto(id=1, name=Zara), priceList=1, startDate=2020-06-14T00:00, endDate=2020-12-31T23:59:59, price=35.5, currency=CurrencyDto(id=2, name=Euro, iso=EUR))
+2024-01-14T23:16:17.804-03:00  INFO 1520919 --- [           main] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
+2024-01-14T23:16:17.804-03:00  INFO 1520919 --- [           main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2024-01-14T23:16:17.805-03:00  INFO 1520919 --- [           main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 1 ms
+2024-01-14T23:16:17.807-03:00  INFO 1520919 --- [           main] e.c.p.b.service.impl.PricesServiceImpl   : Entering getPriceByProductAndBrandAndDate [brandId]: 1, [productId]: 35455, [consultationDate]: 2020-06-15T10:00
+2024-01-14T23:16:17.818-03:00  INFO 1520919 --- [           main] e.c.p.b.service.impl.PricesServiceImpl   : Leaving getPriceByProductAndBrandAndDate [response]: PricesResponse(product=ProductDto(id=35455, name=JEANS BALLOON FIT), brand=BrandDto(id=1, name=Zara), priceList=3, startDate=2020-06-15T00:00, endDate=2020-06-15T11:00, price=30.5, currency=CurrencyDto(id=2, name=Euro, iso=EUR))
+2024-01-14T23:16:17.835-03:00  INFO 1520919 --- [           main] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
+2024-01-14T23:16:17.835-03:00  INFO 1520919 --- [           main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2024-01-14T23:16:17.837-03:00  INFO 1520919 --- [           main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 2 ms
+2024-01-14T23:16:17.839-03:00  INFO 1520919 --- [           main] e.c.p.b.service.impl.PricesServiceImpl   : Entering getPriceByProductAndBrandAndDate [brandId]: 1, [productId]: 35455, [consultationDate]: 2020-06-16T21:00
+2024-01-14T23:16:17.849-03:00  INFO 1520919 --- [           main] e.c.p.b.service.impl.PricesServiceImpl   : Leaving getPriceByProductAndBrandAndDate [response]: PricesResponse(product=ProductDto(id=35455, name=JEANS BALLOON FIT), brand=BrandDto(id=1, name=Zara), priceList=4, startDate=2020-06-15T16:00, endDate=2020-12-31T23:59:59, price=38.95, currency=CurrencyDto(id=2, name=Euro, iso=EUR))
 
 ```
