@@ -11,7 +11,8 @@ import org.mockito.junit.MockitoJUnitRunner;
 
 import java.time.LocalDateTime;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 
 @RunWith(MockitoJUnitRunner.class)
 public class PricesMapperImplTest {

@@ -6,14 +6,10 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.CsvSource;
-import org.junit.jupiter.params.provider.MethodSource;
-import org.junit.jupiter.params.provider.ValueSource;
-import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.http.MediaType;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
-import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.context.web.WebAppConfiguration;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
@@ -49,9 +45,14 @@ public class PricesControllerTest {
         Long prodId = Long.parseLong(productId);
         Long branId = Long.parseLong(brandId);
         Double priceExpect = Double.parseDouble(expectPrice);
+        LocalDateTime queryDate = null;
 
-        System.out.println(consultationDate);
-        LocalDateTime queryDate = LocalDateTime.parse(consultationDate);
+        if (consultationDate == null) {
+            queryDate =  LocalDateTime.now();
+        } else {
+            queryDate = LocalDateTime.parse(consultationDate);
+        }
+
 
         String url = "/v1/api/prices";
         mockMvc.perform(get(url)

@@ -53,8 +53,7 @@ public class PricesServiceImplTest {
 
     @Test
     public void whenFindPriceWithBrandAndProductOk() {
-        LocalDateTime consultationDate = null;
-        consultationDate.format(formatter);
+        LocalDateTime consultationDate = LocalDateTime.now();
         Long brandId = 1L;
         Long productId = 35455L;
         PricesEntity pricesEntity = UtilsMocks.getPricesEntity(consultationDate.minusMonths(5), consultationDate.plusMonths(5), 500.00, 1);
@@ -74,9 +73,7 @@ public class PricesServiceImplTest {
 
     @Test
     public void whenFindPriceWithBrandAndProductNotFound() {
-
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm");
-        LocalDateTime consultationDate = LocalDateTime.parse(DateTimeFormatter.ISO_LOCAL_DATE_TIME);
+        LocalDateTime consultationDate = LocalDateTime.now();
         Long brandId = 1L;
         Long productId = 35455L;
 
@@ -87,7 +84,7 @@ public class PricesServiceImplTest {
         when(pricesRepository.findOne(Mockito.any(Specification.class))).thenReturn(Optional.empty());
 
         PricesNotFoundException exception = assertThrows(PricesNotFoundException.class, () -> {
-            pricesService.getPriceByProductAndBrandAndDate(LocalDateTime.parse(consultationDate.format(formatter)), brandId, productId);
+            pricesService.getPriceByProductAndBrandAndDate(consultationDate, brandId, productId);
         });
         System.out.println(exception.getMessage());
         System.out.println(message);

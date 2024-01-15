@@ -6,13 +6,15 @@ import es.com.priceproduct.between.dto.ProductDto;
 import es.com.priceproduct.between.dto.response.PricesResponse;
 import es.com.priceproduct.between.unit.utils.UtilsMocks;
 
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 
 import java.time.LocalDateTime;
 
-import static org.junit.Assert.*;
+import static org.junit.jupiter.api.Assertions.*;
+
 
 public class PricesResponseTest {
 

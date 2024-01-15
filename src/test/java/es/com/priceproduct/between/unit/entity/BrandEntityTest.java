@@ -5,7 +5,9 @@ import es.com.priceproduct.between.entity.BrandEntity;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertNotEquals;
+import static org.junit.jupiter.api.Assertions.*;
+
 
 public class BrandEntityTest {
 
