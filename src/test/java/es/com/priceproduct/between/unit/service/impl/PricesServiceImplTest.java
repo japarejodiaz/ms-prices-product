@@ -23,10 +23,12 @@ import org.springframework.data.jpa.domain.Specification;
 import java.text.MessageFormat;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.List;
 import java.util.Locale;
 import java.util.Optional;
 
 
+import static org.junit.Assert.assertEquals;
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.when;
@@ -53,28 +55,23 @@ public class PricesServiceImplTest {
     private static final DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm");
 
     @Test
-    @Disabled
     public void whenFindPriceWithBrandAndProductOk() {
-        LocalDateTime consultationDate = LocalDateTime.now();
-        Long brandId = 1L;
-        Long productId = 35455L;
-        PricesEntity pricesEntity = UtilsMocks.getPricesEntity(consultationDate.minusMonths(5), consultationDate.plusMonths(5), 500.00, 1);
-        PricesResponse pricesResponse = UtilsMocks.getPricesResponse(consultationDate.minusMonths(5), consultationDate.plusMonths(5), 500.00, 1);
 
-        String messagePattern = "There are no prices defined for product [{0}] on date [{1}]";
-        when(messageSource.getMessage(ErrorEnum.NOT_FOUND_PRICE.getMessage(), null, Locale.getDefault())).thenReturn(messagePattern);
-        when(pricesRepository.findOne(Mockito.any(Specification.class))).thenReturn(Optional.of(pricesEntity));
+        LocalDateTime consultationDate = LocalDateTime.of(2020, 06, 15, 10, 0, 0);
+        Long brandId = 1L;
+        Long productId = 35455l;
+        PricesEntity pricesEntity = UtilsMocks.getPricesEntity(consultationDate.minusMonths(5),consultationDate.plusMonths(5),500.00,1);
+        PricesResponse pricesResponse = UtilsMocks.getPricesResponse(consultationDate.minusMonths(5),consultationDate.plusMonths(5),500.00,1);
+
+        when(pricesRepository.findAll(any(Specification.class))).thenReturn(List.of(pricesEntity));
         when(pricesMapper.pricesEntityToPricesResponse(pricesEntity)).thenReturn(pricesResponse);
 
-        PricesNotFoundException exception = assertThrows(PricesNotFoundException.class, () -> {
-            pricesService.getPriceByProductAndBrandAndDate(null, brandId, productId);
-        });
-        assertEquals(MessageFormat.format(messagePattern, productId, consultationDate), exception.getMessage());
+        PricesResponse test = pricesService.getPriceByProductAndBrandAndDate(consultationDate, brandId, productId);
+        assertEquals(test,pricesResponse);
 
     }
 
     @Test
-    @Disabled
     public void whenFindPriceWithBrandAndProductNotFound() {
         LocalDateTime consultationDate = LocalDateTime.now();
         Long brandId = 1L;
@@ -83,15 +80,12 @@ public class PricesServiceImplTest {
         String message = "There are no prices defined for product [{0}] on date [{1}]";
 
         when(messageSource.getMessage(ErrorEnum.NOT_FOUND_PRICE.getMessage(), null, Locale.getDefault())).thenReturn(message);
-
-        when(pricesRepository.findOne(Mockito.any(Specification.class))).thenReturn(Optional.empty());
-
         PricesNotFoundException exception = assertThrows(PricesNotFoundException.class, () -> {
-            pricesService.getPriceByProductAndBrandAndDate(consultationDate, brandId, productId);
+            pricesService.getPriceByProductAndBrandAndDate(null, brandId, productId);
         });
         System.out.println(exception.getMessage());
         System.out.println(message);
-        assertEquals(MessageFormat.format(message, productId, consultationDate), exception.getMessage());
+        assertEquals(MessageFormat.format(message, productId.toString(), consultationDate.format(formatter)), exception.getMessage());
     }
 
 }

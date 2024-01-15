@@ -26,7 +26,6 @@ public class PricesSpecification {
 
         List<Predicate> predicates = new ArrayList<>();
 
-
         return (root, query, criteriaBuilder) -> {
 
             predicates.add(criteriaBuilder.equal(root.get(BRAND).get(BRAND_ID),brandId));

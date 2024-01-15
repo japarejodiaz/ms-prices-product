@@ -40,7 +40,7 @@ public class PricesServiceImpl implements PricesService {
   @Override
   public PricesResponse getPriceByProductAndBrandAndDate(LocalDateTime consultationDate, Long brandId, Long productId) {
 
-    log.info("Entering getPriceByProductAndBrandAndDate [brandId]: {}, [productId]: {}, [consultationDate]: {}", brandId, productId, consultationDate);
+    log.debug("Entering getPriceByProductAndBrandAndDate [brandId]: {}, [productId]: {}, [consultationDate]: {}", brandId, productId, consultationDate);
 
     if(Objects.isNull(consultationDate)) {
       consultationDate = LocalDateTime.now();
@@ -49,7 +49,7 @@ public class PricesServiceImpl implements PricesService {
     PricesEntity pricesEntity = getPriceEntity(consultationDate, brandId, productId);
     PricesResponse pricesResponse = pricesMapper.pricesEntityToPricesResponse(pricesEntity);
 
-    log.info("Leaving getPriceByProductAndBrandAndDate [response]: {}", pricesResponse);
+    log.debug("Leaving getPriceByProductAndBrandAndDate [response]: {}", pricesResponse);
     return pricesResponse;
 
   }
